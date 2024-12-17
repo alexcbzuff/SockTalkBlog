@@ -1,0 +1,26 @@
+<h3>Home</h3>
+
+<div class="author">
+    <img src="/img/image4.jpg" alt="picture of alex">
+    <p class="author__body"> Bridged: Conversations from Both Sides of the Atlantic</p>
+    <p class="author__body2"></p>
+</div>
+
+<section class="articles">
+    <h2 class="articles__heading">Latest Posts</h2>
+
+    <ul class="article-ul">
+        <% data.forEach(post => { %>
+            <li>
+                <a href="/post/<%=post._id%>">
+                    <span><%= post.title%></span>
+                    <span class="articles-list_date"><%=post.createdAt.toDateString()%></span>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%=nextPage%>" class="pagination">View older post</a>
+    <% } %>
+</section>
